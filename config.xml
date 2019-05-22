@@ -2,7 +2,7 @@
 
 <widget xmlns = "http://www.w3.org/ns/widgets"
   xmlns:gap = "http://phonegap.com/ns/1.0"
-  id = "com.phonegap.app8"
+  id = "com.phonegap.app7"
   version = "1.0.0">
   
   <name> app8 Geolocalizacion con Google Maps </name>
@@ -11,8 +11,8 @@
   Muestra la ubicacion del dispositivo de acuerdo al GPS y el mapa de google maps
   </description>
   
-  <author href="https://build.phonegap.com" email="lealjaquie02@gmail.com">
-  Jaquelinne Leal Villegas 
+  <author href="https://build.phonegap.com" email="ft301222@gmail.com">
+ Fatima Martinez Diaz 
   </author>
   
   <!--Personaliza la aplicacion y plataforma -->
