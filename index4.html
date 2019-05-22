@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8" />
+<title> Mostrar Aplicaciones </title>
+</head>
+<body>
+<!--Se determnina la localizacion-->
+<div id='ubicacion'></div>
+<script type="text/javascript">
+if(navigator.geolocation){
+	navigator .geolocation.getCurrentPosition (mostrarUbicacion);
+}else{alert("¡Error! Este navegador no soporta la geolocalizacion.");}
+function refrescarUbicacion(){
+	navigator.geolocation.watchPosition(mostrarUbicacion);}
+	</script>
+    
+    <!--Se escribe un mapa con la lozalizacion anterior-->
+    <div id="demo"></div>
+    <div id="mapholder"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>
+    
+    <button onClick="cargamap()">Cargar mapa</button>
+    <script type="text/javascript">
+	var x=document.getElementByld("demo");
+	function cargarmap(){
+		navigator .geolocation.getCurrentPosition (showPosition,showError);
+		function showPosition(position)
+	{
+		lat=position.coords.latitude;
+		lon=position.coords.logitude;
+		lation=new google.maps.LatLng(lat,lon)
+		mapholder=document .getElementByld ('mapholder')
+		mapholder.style.height ='500px';
+		mapholder.style.width ='750px';
+		var myOptions={
+			center:lation,zoom:17,
+			mapTypeld:google.maps.MapTypeld.ROADMAP,
+			mapTypeControl:false.
+			navigatorControlOptions:{style:google.maps.NavigatorControlStyle.SMALL}
+		};
+		var map=new google.maps.Map(document.getElementByld("mapholder"),myOptions);
+		var marker=new google.maps.Marker({position:lation,map:map,title:"You are here!"});
+	}
+	function showError(error)
+	{
+		switch(error.code)
+		{
+			case error.PERMISSION_DENIED:
+			x.innerHTML="Denegada la peticion de geolocalizacion en el navegador."
+			break;
+			case error.POSITION_UNAVAILABLE:
+			x.innerHTML="La informacion de la aplicacion no esta disponible."
+			break;
+			case error.TIMEOUT:
+			x.innerHTML="El tiempo de peticion ha expirado."
+			break;
+			case error.UNKNOWN_ERROR:
+			x.innerHTML="Ha ocurrido un error desconocido"
+			break;
+		}
+	}}
+	</script>
+    
+    </body>
+    </html>
+		
+	
